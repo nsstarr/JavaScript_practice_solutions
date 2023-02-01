@@ -7,3 +7,20 @@ export function isValidCommand(command) {
 export function removeEmoji(message) {
     return message.replace(/emoji\d+/g, '');
 }
+
+export function checkPhoneNumber(number) {
+   if (/^\(\+[0-9][0-9]\) [0-9]{3}-[0-9]{3}-[0-9]{3}$/.test(number)) {
+    return 'Thanks! You can now download me to your phone.'
+  }
+  return `Oops, it seems like I can't reach out to ${number}`
+}
+
+export function getURL(userInput) {
+  const regex = /\w+?\.\w+/g;
+  return userInput.match(regex)
+}
+
+export function niceToMeetYou(fullName) {
+  const politeName = fullName.replace(/([a-z]+), ([a-z]+)/i, '$2 $1')
+  return `Nice to meet you, ${politeName}`
+}
